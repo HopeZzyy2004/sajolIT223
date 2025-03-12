@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<title>people's Life update</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.w3-sidebar {z-index: 3;width: 250px;top: 43px;}
+</style>
+<body class="w3-theme-l5">
+
+//nav
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2 w3-large w3-padding-16" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Notifications"><i class="fa fa-bell"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="More">More <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">Event Reminder</a>
+      <a href="#" class="w3-bar-item w3-button">Profile</a>
+      <a href="#" class="w3-bar-item w3-button">Settings</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="Search"><i class="fa fa-search"></i></a>
+ </div>
+</div>
+
+//sidebar
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-top w3-large w3-theme-l5" id="mySidebar">
+  <a href="javascript:void(0)" class="w3-button w3-right w3-xlarge w3-hide-large w3-hover-black" onclick="w3_close()" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Dashboard</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Your Groups</a> 
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Your updates</a> 
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Videos</a> 
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link 4</a> 
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link 5</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<!-- Page Content -->
+<div class="w3-main" style="margin-left:250px">
+
+  <!-- Header -->
+  <header class="w3-container w3-theme w3-padding" id="myHeader">
+    <div class="w3-center">
+      <h2>My Dashboard</h2>
+      <h1 class="w3-xxxlarge w3-animate-bottom">Welcome to people's life update  by Iezhera</h1>
+    </div>
+  </header>
+
+  <!-- Status: Feeling Blue -->
+  <div class="w3-container w3-card-4 w3-white w3-round w3-margin" id="statusSection"><br>
+    <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+    <span class="w3-right w3-opacity">1 min</span>
+    <h4>Iezhera Sajol</h4><br>
+    <hr class="w3-clear">
+    <p>Emotion Selection Area - underdevelopment</p>
+    <div contenteditable="true" id="postContent" class="w3-border w3-padding">Type your status here...</div>           
+    <button type="button" class="w3-button w3-theme" onclick="postStatus()"><i class="fa fa-pencil"></i>  Post</button> 
+  </div>
+
+  <script>
+    function postStatus() {
+      var content = document.getElementById("postContent").innerText;
+      if (content) {
+        var postDiv = document.createElement("div");
+        postDiv.className = "w3-container w3-card-4 w3-white w3-round w3-margin";
+        postDiv.innerHTML = `
+          <br>
+          <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+          <span class="w3-right w3-opacity">Just now</span>
+          <h4>John Doe</h4><br>
+          <hr class="w3-clear">
+          <p>${content}</p>
+        `;
+        document.body.appendChild(postDiv);
+        document.getElementById("postContent").innerText = ""; // Clear input after posting
+      }
+    }
+  </script>
+
+</div>
+
+</body>
+</html>
